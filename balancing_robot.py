@@ -1,6 +1,7 @@
 from sensors import Sensors
 import threading
 import time
+import globals
 
 class BalancingRobot:
 
@@ -17,4 +18,5 @@ if __name__ == "__main__":
     """
     Busy wait in the parent thread
     """
-    time.sleep(1)
+    print globals.ACCEL
+    time.sleep(0.05)

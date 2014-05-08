@@ -1,4 +1,5 @@
 import time
+import globals
 from adxl345 import ADXL345
 
 class Sensors:
@@ -8,7 +9,7 @@ class Sensors:
     adxl345 = ADXL345()
     print "ADXL345 Initialized"
     while True:
-      print adxl345.read()
+      globals.ACCEL = adxl345.read()
 
-      time.sleep(0.1)
+      time.sleep(0.01)
 
