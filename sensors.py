@@ -8,8 +8,11 @@ class Sensors:
     print "Initializing ADXL345 Accelerometer"
     adxl345 = ADXL345()
     print "ADXL345 Initialized"
+    readings = [0.0, 0.0, 0.0, 0.0, 0.0]
+    i = 0
     while True:
-      globals.ACCEL = adxl345.read()
-
-      time.sleep(0.01)
-
+      readings[i] = adxl345.read()[1]
+      i = (i + 1) % 5
+      time.sleep(0.0001)
+      
+      if i == 0: globals.ACCEL = (sum(readings) / float(len(readings)))
